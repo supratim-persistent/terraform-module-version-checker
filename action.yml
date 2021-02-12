@@ -1,0 +1,26 @@
+# action.yml
+name: 'terraform-module-version-checker'
+description: 'Action that checks Terraform version against parent repository and creates an issue for every mismatched version'
+inputs:
+  REPO_OWNER:           # owner name of the repo where the modules reside
+    description: 'Repo owner name where the modules reside'
+    required: true
+    default: 'supratim-persistent'
+  REPO_NAME:           # owner name of the repo where the modules reside
+    description: 'Repository name where the modules reside'
+    required: true
+    default: 'terraform-module-version-checker'
+  GITHUB_OAUTH_TOKEN:           # owner name of the repo where the modules reside
+    description: 'token'
+    required: true
+    default: 'terraform-module-version-checker'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - run: ${{ github.action_path }}/script.sh ${{ inputs.REPO_OWNER }} ${{ inputs.REPO_NAME }} ${{ inputs.GITHUB_OAUTH_TOKEN }}
+      shell: bash
