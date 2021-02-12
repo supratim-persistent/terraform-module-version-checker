@@ -20,7 +20,5 @@ outputs:
 runs:
   using: 'composite'
   steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
     - run: ${{ github.action_path }}/script.sh ${{ inputs.REPO_OWNER }} ${{ inputs.REPO_NAME }} ${{ inputs.GITHUB_OAUTH_TOKEN }}
       shell: bash
