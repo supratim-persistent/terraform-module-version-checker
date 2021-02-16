@@ -2,18 +2,19 @@
 
 This is a neat utility to keep track of your terraform module versions. If you are using terraform modules tagged with versions for updates relased frequently and eventually calling those versioned modules in your repository, this utility does a good job in tracking if any new version of the module is released and creates an issue in your current reposiotory for upgrading to the new version.
 
-It also does not duplicate issue meaning if a issue has already been created for a module version upgrade, it does not recreate that issue again, however, if a new module version has been released after the issue has been created, it simply updates the issue with the new module version to be upgarded instead of creating another issue.
+It also does not duplicate issue meaning if an issue has already been created for a module version upgrade, it does not recreate that issue again, however, if a new module version has been released after the issue has been created, it simply updates the issue with the new module version to be upgarded instead of creating another issue.
 
 Few points to consider:
 
 _The utility looks for module references in main.tf files only._
 
-_The utility looks for a specific format in which the module is referenced in the main.tf file from the downstream module which is as below._ **Without the module being referenced with version ref as below will result in errors on running his action.**
+_The utility looks for a specific format in which the module is referenced in the main.tf file from the downstream module which is as below._ **Without the module being referenced with version ref as shown below will result in errors on running this action.**
 
 ```hcl
 module "rg" {
 
-  source  = "git::git@github.com:<repo_owner>/terraform-azurerm.git//services/resource-group?ref=v0.1.6"
+  source  = "git::git@github.com:<repo_owner>/<repo_name>.git//services/resource-group?ref=v0.1.6"
+  ## Example : source  = "git::git@github.com:persistentsystems/some-terraform-repo.git//services/resource-group/base/v1?ref=v0.1.6"
 
   context = local.context
   name = "${local.context.application_name}-${local.context.environment_name}"
