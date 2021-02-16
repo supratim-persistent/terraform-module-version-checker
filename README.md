@@ -13,7 +13,7 @@ _The utility looks for a specific format in which the module is referenced in th
 ```hcl
 module "rg" {
 
-  _source  = "git::git@github.com:<repo_owner>/terraform-azurerm.git//services/resource-group?ref=v0.1.6"_
+  source  = "git::git@github.com:<repo_owner>/terraform-azurerm.git//services/resource-group?ref=v0.1.6"
 
   context = local.context
   name = "${local.context.application_name}-${local.context.environment_name}"
