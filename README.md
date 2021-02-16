@@ -61,7 +61,7 @@ on:
 jobs:
   TF-CHECKER:
     runs-on: ubuntu-latest
-    name: tf checker
+    name: tf module version checker
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
