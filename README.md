@@ -3,6 +3,7 @@
 This is a neat utility to keep track of your terraform module versions. If you are using terraform modules tagged with versions for updates relased frequently and eventually calling those versioned modules in your repository, this utility does a good job in tracking if any new version of the module is released and creates an issue in your current reposiotory for upgrading to the new version.
 
 It also does not duplicate issue meaning if an issue has already been created for a module version upgrade, it does not recreate that issue again, however, if a new module version has been released after the issue has been created, it simply updates the issue with the new module version to be upgarded instead of creating another issue.
+
 Note: For checking duplicate issues, the utility checks the list of open issue titles  with the string _Upgarde <module_name> to latest version_ since it creates the issues with the same title, so any issue created for module upgrade manually should stick to the same format to avoid duplications.
 
 Few points to consider:
