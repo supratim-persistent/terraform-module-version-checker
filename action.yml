@@ -5,18 +5,18 @@ inputs:
   REPO_OWNER:           # owner name of the repo where the modules reside
     description: 'Repo owner name where the modules reside'
     required: true
-    default: 'supratim-persistent'
+    default: ''
   REPO_NAME:           # owner name of the repo where the modules reside
     description: 'Repository name where the modules reside'
     required: true
-    default: 'terraform-module-version-checker'
-  GITHUB_OAUTH_TOKEN:           # owner name of the repo where the modules reside
-    description: 'token'
+    default: ''
+  GITHUB_OAUTH_TOKEN:
+    description: 'Github Token stored as secrets'
     required: true
-    default: 'terraform-module-version-checker'
+    default: ''
 outputs:
   time: # id of output
-    description: 'The time we greeted you'
+    description: 'The time it was run'
 runs:
   using: 'composite'
   steps:
