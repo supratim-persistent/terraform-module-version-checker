@@ -6,7 +6,7 @@ It also does not duplicate issue meaning if an issue has already been created fo
 
 Note: For checking duplicate issues, the utility checks the list of open issue titles  with the string _Upgarde <module_name> to latest version_ since it creates the issues with the same title, so any issue created for module upgrade manually should stick to the same format to avoid duplications.
 
-![Issues Page](_images/issues-example.PNG)
+![Issues Page](_images/issues-example.png)
 
 Few points to consider:
 
