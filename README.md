@@ -50,3 +50,24 @@ on:
     REPO_NAME: '<TO BE POPULATED>'
     GITHUB_OAUTH_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
 ```
+## Complete Example with the workflow pipeline
+
+```bash
+name: TF Version Checker
+on: 
+  schedule:
+  - cron: '05 0 * * *'
+
+jobs:
+  TF-CHECKER:
+    runs-on: ubuntu-latest
+    name: tf checker
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+    - name: Terraform Module Version Checker
+      uses: supratim-persistent/terraform-module-version-checker@v2
+      with:
+        REPO_OWNER: '<TO BE POPULATED>'
+        REPO_NAME: '<TO BE POPULATED>'
+        GITHUB_OAUTH_TOKEN: ${{ secrets.GIT_AUTH_TOKEN }}
